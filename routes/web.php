@@ -21,12 +21,7 @@ Route::get('/laporan-berhasil/{code}', [ReportController::class, 'success'])->na
 // Halaman Beranda
 Route::get('/', function () {
     return view('beranda');
-});
-
-// Route untuk menyimpan pengaduan
-Route::post('/pengaduan', function () {
-    return redirect()->back()->with('success', 'Laporan berhasil dikirim! Simpan kode tracking Anda.');
-})->name('pengaduan.store');  
+});  
 
 Route::get('/cek-status', function () {
     return view('report.check-status');
@@ -34,6 +29,26 @@ Route::get('/cek-status', function () {
 
 Route::post('/cek-status', function (\Illuminate\Http\Request $request) {
     $request->validate(['tracking_code' => 'required']);
-    $report = \App\Models\Report::where('tracking_code', strtoupper($request->tracking_code))->first();
+    $report = \App\Models\Report::where('tracking_code', strtoupper(trim($request->tracking_code)))->first();
+
+    if ($request->wantsJson() || $request->ajax()) {
+        if (!$report) {
+            return response()->json([
+                'found' => false,
+                'message' => 'Nomor register tidak ditemukan. Pastikan nomor yang Anda masukkan benar (Contoh: WBS-XXXXXX).'
+            ]);
+        }
+        return response()->json([
+            'found' => true,
+            'report' => [
+                'tracking_code' => $report->tracking_code,
+                'status' => $report->status,
+                'jenis_pelanggaran' => $report->jenis_pelanggaran,
+                'tanggal' => $report->created_at ? $report->created_at->format('d M Y, H:i') : '-',
+                'catatan_admin' => $report->catatan_admin,
+            ]
+        ]);
+    }
+
     return view('report.check-status', compact('report'));
 })->name('report.check.post');

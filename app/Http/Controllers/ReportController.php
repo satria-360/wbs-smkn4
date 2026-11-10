@@ -17,11 +17,11 @@ class ReportController extends Controller
             'jenis_pelanggaran' => 'required',
             'indikasi_apa' => 'required',
             'lokasi_kejadian' => 'required',
-            'waktu_kejadian' => 'required|date',
+            'waktu_kejadian' => 'required',
             'nama_terlapor' => 'required',
             'kronologis' => 'required',
             'email' => 'required|email',
-            'bukti.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf,mp4,zip,rar|max:20480', // Max 20MB
+            'bukti.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf,mp4,zip,rar|max:51200', // Max 50MB
         ]);
 
         // Generate Kode Tracking Unik (Contoh: WBS-A1B2C3)
@@ -37,12 +37,12 @@ class ReportController extends Controller
             'nama_terlapor' => $validated['nama_terlapor'],
             'nuptk_terlapor' => $request->nuptk_terlapor ? strtoupper($request->nuptk_terlapor) : null,
             'kronologis' => $validated['kronologis'],
-            'nama_pelapor' => $request->is_anonymous ? null : $request->nama_pelapor,
-            'nis' => $request->is_anonymous ? null : $request->nis,
-            'nuptk_pelapor' => $request->is_anonymous ? null : ($request->nuptk_pelapor ? strtoupper($request->nuptk_pelapor) : null),
+            'nama_pelapor' => $request->nama_pelapor ?? null,
+            'nis' => $request->nis ?? null,
+            'nuptk_pelapor' => $request->nuptk_pelapor ? strtoupper($request->nuptk_pelapor) : ($request->nip_pelapor ? strtoupper($request->nip_pelapor) : null),
             'email' => $validated['email'],
             'no_hp' => $request->no_hp,
-            'is_anonymous' => $request->has('is_anonymous'),
+            'is_anonymous' => $request->has('is_anonymous') || empty($request->nama_pelapor),
         ]);
 
         // Handle Upload File (Disimpan di folder private agar aman)
