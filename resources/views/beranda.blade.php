@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WBS - SMKN 4 Bandung</title>
+    <title>WBS - Balai Kota Bandung</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,12 +24,13 @@
             color: #dc2626;
         }
         html { scroll-behavior: smooth; }
+        [x-cloak] { display: none !important; }
     </style>
 </head>
 <body class="bg-gray-50">
 
     {{-- ==================== NAVBAR (DENGAN SCROLL SPY) ==================== --}}
-    <nav class="bg-blue-800 shadow-lg sticky top-0 z-50" x-data="{ 
+    <nav class="bg-blue-950 shadow-lg sticky top-0 z-50" x-data="{ 
         activeSection: 'beranda',
         mobileMenuOpen: false,
         init() {
@@ -52,51 +53,46 @@
                 
                 {{-- Logo --}}
                 <div class="flex items-center space-x-3">
-                    <img src="{{ asset('image/4bdg.jpeg') }}" 
-                         alt="Logo SMKN 4 Bandung" 
-                         class="h-14 w-auto object-contain rounded-md"
-                         onerror="this.src='{{ asset('images/4bdg.jpeg') }}'">
-                    <div class="text-white">
-                        <div class="font-bold text-lg leading-tight">WBS</div>
-                        <div class="text-xs text-gray-950">SMKN 4 BANDUNG</div>
-                    </div>
+                    <img src="{{ asset('images/LOGO.png') }}" 
+                         alt="Logo Pemkot Bandung" 
+                         class="h-12 w-auto object-contain">
                 </div>
 
                 {{-- Menu Navigasi Desktop --}}
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#beranda" 
                        @click.prevent="activeSection = 'beranda'; document.getElementById('beranda').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'beranda' ? 'text-gray-950 font-bold border-b-2 border-gray-950' : 'text-white hover:text-blue-200'"
+                       :class="activeSection === 'beranda' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1"> 
                         BERANDA
                     </a>
                     <a href="#cara-kerja" 
                        @click.prevent="activeSection = 'cara-kerja'; document.getElementById('cara-kerja').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'cara-kerja' ? 'text-gray-950 font-bold border-b-2 border-gray-950' : 'text-white hover:text-blue-200'"
+                       :class="activeSection === 'cara-kerja' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         CARA KERJA
                     </a>
                     <a href="#buat-pengaduan" 
                        @click.prevent="activeSection = 'buat-pengaduan'; document.getElementById('buat-pengaduan').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'buat-pengaduan' ? 'text-gray-950 font-bold border-b-2 border-gray-950' : 'text-white hover:text-blue-200'"
+                       :class="activeSection === 'buat-pengaduan' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         BUAT PENGADUAN
                     </a>
                     <a href="#cek-status" 
                        @click.prevent="activeSection = 'cek-status'; document.getElementById('cek-status').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'cek-status' ? 'text-gray-950 font-bold border-b-2 border-gray-950' : 'text-white hover:text-blue-200'"
+                       :class="activeSection === 'cek-status' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         CEK STATUS
                     </a>
                     <a href="#faq" 
                        @click.prevent="activeSection = 'faq'; document.getElementById('faq').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'faq' ? 'text-gray-950 font-bold border-b-2 border-gray-950' : 'text-white hover:text-blue-200'"
+                       :class="activeSection === 'faq' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         FAQ
                     </a>
                     <a href="#peraturan" 
                        @click.prevent="activeSection = 'peraturan'; document.getElementById('peraturan').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'peraturan' ? 'text-gray-950 font-bold border-b-2 border-gray-950' : 'text-white hover:text-blue-200'"
+                       :class="activeSection === 'peraturan' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         PERATURAN
                     </a>
@@ -114,15 +110,15 @@
             </div>
 
             {{-- Mobile Menu --}}
-            <div x-show="mobileMenuOpen" 
+            <div x-show="mobileMenuOpen" x-cloak
                  x-transition
                  class="md:hidden pb-4 border-t border-blue-700 mt-2 pt-2">
-                <a href="#beranda" @click="activeSection = 'beranda'; mobileMenuOpen = false" :class="activeSection === 'beranda' ? 'text-blue-200 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">BERANDA</a>
-                <a href="#cara-kerja" @click="activeSection = 'cara-kerja'; mobileMenuOpen = false" :class="activeSection === 'cara-kerja' ? 'text-blue-200 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">CARA KERJA</a>
-                <a href="#buat-pengaduan" @click="activeSection = 'buat-pengaduan'; mobileMenuOpen = false" :class="activeSection === 'buat-pengaduan' ? 'text-blue-200 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">BUAT PENGADUAN</a>
-                <a href="#cek-status" @click="activeSection = 'cek-status'; mobileMenuOpen = false" :class="activeSection === 'cek-status' ? 'text-blue-200 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">CEK STATUS</a>
-                <a href="#faq" @click="activeSection = 'faq'; mobileMenuOpen = false" :class="activeSection === 'faq' ? 'text-blue-200 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">FAQ</a>
-                <a href="#peraturan" @click="activeSection = 'peraturan'; mobileMenuOpen = false" :class="activeSection === 'peraturan' ? 'text-blue-200 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">PERATURAN</a>
+                <a href="#beranda" @click="activeSection = 'beranda'; mobileMenuOpen = false" :class="activeSection === 'beranda' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">BERANDA</a>
+                <a href="#cara-kerja" @click="activeSection = 'cara-kerja'; mobileMenuOpen = false" :class="activeSection === 'cara-kerja' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">CARA KERJA</a>
+                <a href="#buat-pengaduan" @click="activeSection = 'buat-pengaduan'; mobileMenuOpen = false" :class="activeSection === 'buat-pengaduan' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">BUAT PENGADUAN</a>
+                <a href="#cek-status" @click="activeSection = 'cek-status'; mobileMenuOpen = false" :class="activeSection === 'cek-status' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">CEK STATUS</a>
+                <a href="#faq" @click="activeSection = 'faq'; mobileMenuOpen = false" :class="activeSection === 'faq' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">FAQ</a>
+                <a href="#peraturan" @click="activeSection = 'peraturan'; mobileMenuOpen = false" :class="activeSection === 'peraturan' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">PERATURAN</a>
             </div>
         </div>
     </nav>
@@ -130,10 +126,9 @@
     {{-- ==================== HERO SECTION ==================== --}}
     <section id="beranda" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0">
-            <img src="{{ asset('image/smk4.jpeg') }}" 
-                 alt="Gedung SMKN 4 Bandung" 
-                 class="w-full h-full object-cover"
-                 onerror="this.src='{{ asset('image/smk4.jpg') }}'">
+            <img src="{{ asset('images/balkot.png') }}" 
+                 alt="Balai Kota Bandung" 
+                 class="w-full h-full object-cover">
         </div>
         <div class="hero-overlay absolute inset-0"></div>
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
@@ -141,10 +136,10 @@
                 Whistleblowing System (WBS)
             </h1>
             <h2 class="text-white text-3xl md:text-5xl font-extrabold tracking-wide mb-10 drop-shadow-lg uppercase">
-                SMKN 4 BANDUNG
+                BALAI KOTA BANDUNG
             </h2>
             <a href="#cara-kerja" 
-               class="inline-block bg-blue-800 hover:bg-blue-900 text-white font-bold text-lg px-10 py-4 rounded-md shadow-xl transform hover:scale-105 transition-all duration-300">
+               class="inline-block bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg px-10 py-4 rounded-md shadow-xl transform hover:scale-105 transition-all duration-300">
                 CARA KERJA WBS
             </a>
         </div>
@@ -168,7 +163,7 @@
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4">Mengisi Formulir</h3>
-                    <p class="text-gray-600 leading-relaxed">Pelapor mengisi Formulir pada Website WBS SMKN 4 Bandung. Pelapor mengunggah bukti pendukung dalam bentuk foto, file atau sejenisnya, dan mengirim laporan.</p>
+                    <p class="text-gray-600 leading-relaxed">Pelapor mengisi Formulir pada Website WBS Balai Kota Bandung. Pelapor mengunggah bukti pendukung dalam bentuk foto, file atau sejenisnya, dan mengirim laporan.</p>
                 </div>
                 <div class="text-center">
                     <div class="mx-auto w-32 h-32 bg-blue-800 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-blue-800/30">
@@ -177,7 +172,7 @@
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4">Laporan diterima</h3>
-                    <p class="text-gray-600 leading-relaxed">Laporan yang diterima akan <strong class="text-gray-800">diverifikasi</strong> terlebih dahulu oleh tim WBS SMKN 4 Bandung.</p>
+                    <p class="text-gray-600 leading-relaxed">Laporan yang diterima akan <strong class="text-gray-800">diverifikasi</strong> terlebih dahulu oleh tim WBS Balai Kota Bandung.</p>
                 </div>
                 <div class="text-center">
                     <div class="mx-auto w-32 h-32 bg-blue-800 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-blue-800/30">
@@ -256,7 +251,7 @@
                                 <option value="Perundungan (Bullying) / Kekerasan">Perundungan (Bullying) / Kekerasan</option>
                                 <option value="Pelecehan Seksual">Pelecehan Seksual</option>
                                 <option value="Pelanggaran Disiplin / Kode Etik">Pelanggaran Disiplin / Kode Etik</option>
-                                <option value="Perusakan Fasilitas Sekolah">Perusakan Fasilitas Sekolah</option>
+                                <option value="Perusakan Fasilitas Publik / Aset Daerah">Perusakan Fasilitas Publik / Aset Daerah</option>
                                 <option value="Lainnya">Lainnya</option>
                             </select>
                         </div>
@@ -338,9 +333,9 @@
                             <input type="text" 
                                    x-model="captchaInput" 
                                    required 
-                                   placeholder="" 
+                                   placeholder="Masukkan kode di atas" 
                                    class="w-full px-3.5 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 uppercase">
-                            <p x-show="captchaError" class="text-xs text-red-600 font-medium">Kode CAPTCHA tidak sesuai, silakan coba lagi.</p>
+                            <p x-show="captchaError" x-cloak class="text-xs text-red-600 font-medium">Kode CAPTCHA tidak sesuai, silakan coba lagi.</p>
                         </div>
 
                         {{-- Tombol Kirim --}}
@@ -355,15 +350,14 @@
                 </div>
 
                 {{-- ==================== POP-UP KONFIRMASI ==================== --}}
-                <div x-show="showConfirmModal" 
+                <div x-show="showConfirmModal" x-cloak
                      x-transition:enter="transition ease-out duration-300"
                      x-transition:enter-start="opacity-0"
                      x-transition:enter-end="opacity-100"
                      x-transition:leave="transition ease-in duration-200"
                      x-transition:leave-start="opacity-100"
                      x-transition:leave-end="opacity-0"
-                     class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
-                     style="display: none;">
+                     class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                     
                     <div class="bg-white rounded-lg shadow-2xl max-w-md w-full p-6">
                         <div class="flex items-center mb-4">
@@ -445,7 +439,7 @@
                            x-model="trackingCode" 
                            placeholder="Nomor Register *" 
                            required 
-                           class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
+                           class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400 uppercase">
                 </div>
 
                 <div class="mt-4 flex justify-center">
@@ -459,12 +453,12 @@
             </form>
 
             {{-- Error Connection --}}
-            <div x-show="error" class="mt-6 max-w-md mx-auto text-sm text-red-600 bg-red-50 p-3 rounded border border-red-200">
+            <div x-show="error" x-cloak class="mt-6 max-w-md mx-auto text-sm text-red-600 bg-red-50 p-3 rounded border border-red-200">
                 <p x-text="error"></p>
             </div>
 
             {{-- Hasil Pencarian Status --}}
-            <div x-show="result" x-transition class="mt-8 max-w-lg mx-auto bg-gray-50 border border-gray-200 rounded-lg p-6 text-left shadow-sm">
+            <div x-show="result" x-cloak x-transition class="mt-8 max-w-lg mx-auto bg-gray-50 border border-gray-200 rounded-lg p-6 text-left shadow-sm">
                 <template x-if="result && result.found">
                     <div>
                         <div class="flex justify-between items-center mb-4 pb-3 border-b border-gray-200">
@@ -515,7 +509,7 @@
             {{-- Accordion Container --}}
             <div class="max-w-3xl mx-auto border border-gray-200 rounded overflow-hidden shadow-sm bg-white divide-y divide-gray-200">
                 
-                {{-- FAQ Item 1 (Sesuai Screenshot) --}}
+                {{-- FAQ Item 1 --}}
                 <div>
                     <button type="button" 
                             @click="activeFaq = (activeFaq === 1 ? null : 1)" 
@@ -525,7 +519,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="activeFaq === 1" x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
+                    <div x-show="activeFaq === 1" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
                         Mengisi email dan nomor HP yang dapat dihubungi serta melengkapi form pelaporan.
                     </div>
                 </div>
@@ -540,8 +534,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="activeFaq === 2" x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
-                        Ya, identitas pelapor dijamin kerahasiaannya dan dilindungi oleh pihak sekolah SMKN 4 Bandung serta peraturan hukum yang berlaku. Anda juga dapat memilih opsi anonim saat melapor.
+                    <div x-show="activeFaq === 2" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
+                        Ya, identitas pelapor dijamin kerahasiaannya dan dilindungi oleh pihak Pemerintah Kota Bandung serta peraturan hukum yang berlaku. Anda juga dapat memilih opsi anonim saat melapor.
                     </div>
                 </div>
 
@@ -555,7 +549,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="activeFaq === 3" x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
+                    <div x-show="activeFaq === 3" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
                         Anda dapat memeriksa perkembangan laporan melalui menu "Cek Status" di atas dengan memasukkan Nomor Register / Kode Tracking yang Anda terima saat selesai mengirim laporan.
                     </div>
                 </div>
@@ -570,7 +564,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="activeFaq === 4" x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
+                    <div x-show="activeFaq === 4" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
                         Laporan yang masuk akan diverifikasi awal dalam waktu maksimal 3x24 jam kerja sebelum ditindaklanjuti ke tahap investigasi oleh tim penanganan resmi.
                     </div>
                 </div>
@@ -585,8 +579,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="activeFaq === 5" x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
-                        Tidak ada biaya apapun. Semua layanan Whistleblowing System (WBS) SMKN 4 Bandung sepenuhnya gratis.
+                    <div x-show="activeFaq === 5" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
+                        Tidak ada biaya apapun. Semua layanan Whistleblowing System (WBS) Balai Kota Bandung sepenuhnya gratis.
                     </div>
                 </div>
 
@@ -594,19 +588,19 @@
         </div>
     </section>
 
-    {{-- ==================== SECTION PERATURAN (Placeholder) ==================== --}}
+    {{-- ==================== SECTION PERATURAN ==================== --}}
     <section id="peraturan" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">PERATURAN</h2>
-            <p class="text-gray-600">Peraturan terkait WBS SMKN 4 Bandung akan segera tersedia.</p>
+            <p class="text-gray-600">Peraturan terkait WBS Balai Kota Bandung akan segera tersedia.</p>
         </div>
     </section>
 
     {{-- ==================== FOOTER ==================== --}}
     <footer class="bg-blue-900 text-white py-8">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-blue-200">&copy; 2026 Whistleblowing System - SMKN 4 Bandung. All rights reserved.</p>
-            <p class="text-blue-300 text-sm mt-2">Jl. Kliningan No.6, Turangga, Kec. Lengkong, Kota Bandung, Jawa Barat</p>
+            <p class="text-blue-200">&copy; 2026 Whistleblowing System - Balai Kota Bandung. All rights reserved.</p>
+            <p class="text-blue-300 text-sm mt-2">Jl. Dalem Kaum No. 3, Bandung Wetan, Kota Bandung, Jawa Barat 40113</p>
         </div>
     </footer>
 
