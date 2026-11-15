@@ -62,37 +62,37 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#beranda" 
                        @click.prevent="activeSection = 'beranda'; document.getElementById('beranda').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'beranda' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
+                       :class="activeSection === 'beranda' ? 'text-blue-500 font-bold border-b-2 border-blue-500' : 'text-white hover:text-blue-500'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1"> 
                         BERANDA
                     </a>
                     <a href="#cara-kerja" 
                        @click.prevent="activeSection = 'cara-kerja'; document.getElementById('cara-kerja').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'cara-kerja' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
+                       :class="activeSection === 'cara-kerja' ? 'text-blue-500 font-bold border-b-2 border-blue-500' : 'text-white hover:text-blue-500'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         CARA KERJA
                     </a>
                     <a href="#buat-pengaduan" 
                        @click.prevent="activeSection = 'buat-pengaduan'; document.getElementById('buat-pengaduan').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'buat-pengaduan' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
+                       :class="activeSection === 'buat-pengaduan' ? 'text-blue-500 font-bold border-b-2 border-blue-500' : 'text-white hover:text-blue-500'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         BUAT PENGADUAN
                     </a>
                     <a href="#cek-status" 
                        @click.prevent="activeSection = 'cek-status'; document.getElementById('cek-status').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'cek-status' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
+                       :class="activeSection === 'cek-status' ? 'text-blue-500 font-bold border-b-2 border-blue-500' : 'text-white hover:text-blue-500'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         CEK STATUS
                     </a>
                     <a href="#faq" 
                        @click.prevent="activeSection = 'faq'; document.getElementById('faq').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'faq' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
+                       :class="activeSection === 'faq' ? 'text-blue-500 font-bold border-b-2 border-blue-500' : 'text-white hover:text-blue-500'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         FAQ
                     </a>
                     <a href="#peraturan" 
                        @click.prevent="activeSection = 'peraturan'; document.getElementById('peraturan').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'peraturan' ? 'text-yellow-400 font-bold border-b-2 border-yellow-400' : 'text-white hover:text-yellow-400'"
+                       :class="activeSection === 'peraturan' ? 'text-blue-500 font-bold border-b-2 border-blue-500' : 'text-white hover:text-blue-500'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         PERATURAN
                     </a>
