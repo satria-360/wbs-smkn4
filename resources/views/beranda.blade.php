@@ -90,11 +90,11 @@
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
                         FAQ
                     </a>
-                    <a href="#peraturan" 
-                       @click.prevent="activeSection = 'peraturan'; document.getElementById('peraturan').scrollIntoView({behavior: 'smooth'})"
-                       :class="activeSection === 'peraturan' ? 'text-blue-500 font-bold border-b-2 border-blue-500' : 'text-white hover:text-blue-500'"
+                    <a href="#pengaturan" 
+                       @click.prevent="activeSection = 'pengaturan'; document.getElementById('pengaturan').scrollIntoView({behavior: 'smooth'})"
+                       :class="activeSection === 'pengaturan' ? 'text-blue-500 font-bold border-b-2 border-blue-500' : 'text-white hover:text-blue-500'"
                        class="font-semibold text-sm tracking-wide transition-colors duration-300 py-1">
-                        PERATURAN
+                        PENGATURAN
                     </a>
                 </div>
 
@@ -113,12 +113,12 @@
             <div x-show="mobileMenuOpen" x-cloak
                  x-transition
                  class="md:hidden pb-4 border-t border-blue-700 mt-2 pt-2">
-                <a href="#beranda" @click="activeSection = 'beranda'; mobileMenuOpen = false" :class="activeSection === 'beranda' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">BERANDA</a>
-                <a href="#cara-kerja" @click="activeSection = 'cara-kerja'; mobileMenuOpen = false" :class="activeSection === 'cara-kerja' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">CARA KERJA</a>
-                <a href="#buat-pengaduan" @click="activeSection = 'buat-pengaduan'; mobileMenuOpen = false" :class="activeSection === 'buat-pengaduan' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">BUAT PENGADUAN</a>
-                <a href="#cek-status" @click="activeSection = 'cek-status'; mobileMenuOpen = false" :class="activeSection === 'cek-status' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">CEK STATUS</a>
-                <a href="#faq" @click="activeSection = 'faq'; mobileMenuOpen = false" :class="activeSection === 'faq' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">FAQ</a>
-                <a href="#peraturan" @click="activeSection = 'peraturan'; mobileMenuOpen = false" :class="activeSection === 'peraturan' ? 'text-yellow-400 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">PERATURAN</a>
+                <a href="#beranda" @click="activeSection = 'beranda'; mobileMenuOpen = false" :class="activeSection === 'beranda' ? 'text-blue-500 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">BERANDA</a>
+                <a href="#cara-kerja" @click="activeSection = 'cara-kerja'; mobileMenuOpen = false" :class="activeSection === 'cara-kerja' ? 'text-blue-500 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">CARA KERJA</a>
+                <a href="#buat-pengaduan" @click="activeSection = 'buat-pengaduan'; mobileMenuOpen = false" :class="activeSection === 'buat-pengaduan' ? 'text-blue-500 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">BUAT PENGADUAN</a>
+                <a href="#cek-status" @click="activeSection = 'cek-status'; mobileMenuOpen = false" :class="activeSection === 'cek-status' ? 'text-blue-500 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">CEK STATUS</a>
+                <a href="#faq" @click="activeSection = 'faq'; mobileMenuOpen = false" :class="activeSection === 'faq' ? 'text-blue-500 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">FAQ</a>
+                <a href="#pengaturan" @click="activeSection = 'pengaturan'; mobileMenuOpen = false" :class="activeSection === 'pengaturan' ? 'text-blue-500 font-bold' : 'text-white'" class="block font-semibold py-2 text-sm">PENGATURAN</a>
             </div>
         </div>
     </nav>
@@ -132,7 +132,7 @@
         </div>
         <div class="hero-overlay absolute inset-0"></div>
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-            <h1 class="font-serif-italic text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
+            <h1 class="font-serif text-white text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
                 Whistleblowing System (WBS)
             </h1>
             <h2 class="text-white text-3xl md:text-5xl font-extrabold tracking-wide mb-10 drop-shadow-lg uppercase">
@@ -212,35 +212,19 @@
                     
                     {{-- ==================== KOLOM KIRI ==================== --}}
                     <div class="space-y-4">
-                        {{-- NIP Pelapor (Opsional) --}}
                         <div>
-                            <input type="text" 
-                                   name="nip_pelapor" 
-                                   placeholder="NIP Pelapor (Opsional)" 
-                                   class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
+                            <input type="text" name="nip_pelapor" placeholder="NIP Pelapor (Opsional)" class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
                         </div>
-
-                        {{-- Email (Wajib diisi dengan email yang dapat dihubungi) --}}
                         <div>
-                            <input type="email" 
-                                   name="email" 
-                                   placeholder="Email (Wajib diisi dengan email yang dapat dihubungi)" 
-                                   required 
-                                   class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
+                            <input type="email" name="email" placeholder="Email (Wajib diisi dengan email yang dapat dihubungi)" required class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
                         </div>
-
-                        {{-- Nomor Telepon / HP --}}
                         <div>
-                            <input type="tel" 
-                                   name="no_hp" 
-                                   placeholder="Nomor Telepon / HP (Nomor yang dapat dihubungi (Opsional))" 
-                                   class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
+                            <input type="tel" name="no_hp" placeholder="Nomor Telepon / HP (Nomor yang dapat dihubungi (Opsional))" class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
                         </div>
                     </div>
 
                     {{-- ==================== KOLOM KANAN ==================== --}}
                     <div class="space-y-4">
-                        {{-- Jenis Pelanggaran --}}
                         <div>
                             <label class="block text-sm text-gray-800 mb-1 font-normal">Jenis Pelanggaran :</label>
                             <select name="jenis_pelanggaran" required class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 cursor-pointer">
@@ -255,97 +239,40 @@
                                 <option value="Lainnya">Lainnya</option>
                             </select>
                         </div>
-
-                        {{-- Indikasi Perbuatan Pelanggaran (Apa) --}}
                         <div>
-                            <input type="text" 
-                                   name="indikasi_apa" 
-                                   placeholder="Indikasi Perbuatan Pelanggaran yang diketahui (Apa) *" 
-                                   required 
-                                   class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
+                            <input type="text" name="indikasi_apa" placeholder="Indikasi Perbuatan Pelanggaran yang diketahui (Apa) *" required class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
                         </div>
-
-                        {{-- Lokasi Kejadian (Dimana) --}}
                         <div>
-                            <input type="text" 
-                                   name="lokasi_kejadian" 
-                                   placeholder="Lokasi Kejadian (Dimana) *" 
-                                   required 
-                                   class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
+                            <input type="text" name="lokasi_kejadian" placeholder="Lokasi Kejadian (Dimana) *" required class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
                         </div>
-
-                        {{-- Waktu Kejadian (Kapan) --}}
                         <div>
                             <label class="block text-sm text-gray-800 mb-1 font-normal">Waktu Kejadian (Kapan) * :</label>
-                            <input type="date" 
-                                   name="waktu_kejadian" 
-                                   required 
-                                   class="w-full px-3.5 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400">
+                            <input type="date" name="waktu_kejadian" required class="w-full px-3.5 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400">
                         </div>
-
-                        {{-- Nama Terlapor --}}
                         <div>
-                            <input type="text" 
-                                   name="nama_terlapor" 
-                                   placeholder="Nama Terlapor *" 
-                                   required 
-                                   class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
+                            <input type="text" name="nama_terlapor" placeholder="Nama Terlapor *" required class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400">
                         </div>
-
-                        {{-- Kronologis Kejadian (Bagaimana) --}}
                         <div>
-                            <textarea name="kronologis" 
-                                      rows="6" 
-                                      placeholder="Kronologis Kejadian (Bagaimana) *" 
-                                      required 
-                                      class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400 resize-y"></textarea>
+                            <textarea name="kronologis" rows="6" placeholder="Kronologis Kejadian (Bagaimana) *" required class="w-full px-3.5 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400 resize-y"></textarea>
                         </div>
-
-                        {{-- Unggah Bukti --}}
                         <div>
                             <label class="block text-sm text-gray-800 mb-1 font-normal">Unggah bukti</label>
                             <div class="border border-gray-300 rounded bg-white p-1">
-                                <input type="file" 
-                                       name="bukti[]" 
-                                       id="bukti_file" 
-                                       multiple 
-                                       accept=".jpg,.jpeg,.png,.pdf,.mp4,.zip,.rar"
-                                       class="block w-full text-xs text-gray-600 file:mr-3 file:py-1 file:px-3 file:rounded file:border file:border-gray-300 file:text-xs file:font-normal file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer focus:outline-none">
+                                <input type="file" name="bukti[]" id="bukti_file" multiple accept=".jpg,.jpeg,.png,.pdf,.mp4,.zip,.rar" class="block w-full text-xs text-gray-600 file:mr-3 file:py-1 file:px-3 file:rounded file:border file:border-gray-300 file:text-xs file:font-normal file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer focus:outline-none">
                             </div>
-                            <p class="text-[11px] leading-tight text-gray-500 mt-1 italic">
-                                *) File yang diperbolehkan berupa pdf, foto, audio, atau video (dapat berupa satu berkas dalam bentuk *.zip atau *.rar). Maksimal ukuran 50 MB.
-                            </p>
+                            <p class="text-[11px] leading-tight text-gray-500 mt-1 italic">*) File yang diperbolehkan berupa pdf, foto, audio, atau video (dapat berupa satu berkas dalam bentuk *.zip atau *.rar). Maksimal ukuran 50 MB.</p>
                         </div>
-
-                        {{-- CAPTCHA --}}
                         <div class="space-y-1.5 pt-1">
                             <div class="flex items-center space-x-2">
-                                <canvas x-ref="captchaCanvas" 
-                                        width="130" 
-                                        height="38" 
-                                        @click="generateCaptcha()" 
-                                        class="border border-gray-300 rounded bg-gray-100 cursor-pointer shadow-inner" 
-                                        title="Klik untuk ganti kode"></canvas>
-                                <button type="button" @click="generateCaptcha()" class="text-xs text-blue-600 hover:underline">
-                                    ↻ Ganti kode
-                                </button>
+                                <canvas x-ref="captchaCanvas" width="130" height="38" @click="generateCaptcha()" class="border border-gray-300 rounded bg-gray-100 cursor-pointer shadow-inner" title="Klik untuk ganti kode"></canvas>
+                                <button type="button" @click="generateCaptcha()" class="text-xs text-blue-600 hover:underline">↻ Ganti kode</button>
                             </div>
-                            <input type="text" 
-                                   x-model="captchaInput" 
-                                   required 
-                                   placeholder="Masukkan kode di atas" 
-                                   class="w-full px-3.5 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 uppercase">
+                            <input type="text" x-model="captchaInput" required placeholder="Masukkan kode di atas" class="w-full px-3.5 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 uppercase">
                             <p x-show="captchaError" x-cloak class="text-xs text-red-600 font-medium">Kode CAPTCHA tidak sesuai, silakan coba lagi.</p>
                         </div>
-
-                        {{-- Tombol Kirim --}}
                         <div class="pt-2">
-                            <button type="submit" 
-                                    class="w-full bg-blue-800 hover:bg-blue-900 active:bg-blue-950 text-white font-bold py-2.5 px-4 rounded shadow-sm transition-colors text-sm tracking-wider uppercase">
-                                KIRIM
-                            </button>
+                            <button type="submit" class="w-full bg-blue-800 hover:bg-blue-900 active:bg-blue-950 text-white font-bold py-2.5 px-4 rounded shadow-sm transition-colors text-sm tracking-wider uppercase">KIRIM</button>
                         </div>
-
                     </div>
                 </div>
 
@@ -358,7 +285,6 @@
                      x-transition:leave-start="opacity-100"
                      x-transition:leave-end="opacity-0"
                      class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-                    
                     <div class="bg-white rounded-lg shadow-2xl max-w-md w-full p-6">
                         <div class="flex items-center mb-4">
                             <svg class="h-8 w-8 text-blue-800 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -366,27 +292,16 @@
                             </svg>
                             <h3 class="text-lg font-bold text-gray-900">Konfirmasi Pengaduan</h3>
                         </div>
-                        
                         <p class="text-sm text-gray-700 mb-6">
                             Apakah Anda yakin data laporan yang diisi sudah benar? 
                             <span class="block mt-2 font-semibold text-red-600">Laporan palsu atau fitnah dapat dikenakan sanksi tata tertib dan ketentuan hukum yang berlaku.</span>
                         </p>
-                        
                         <div class="flex justify-end space-x-3">
-                            <button type="button" 
-                                    @click="showConfirmModal = false"
-                                    class="px-4 py-2 bg-gray-200 text-gray-700 text-sm font-medium rounded hover:bg-gray-300 transition">
-                                Batal
-                            </button>
-                            <button type="button" 
-                                    @click="confirmSubmit()"
-                                    class="px-4 py-2 bg-blue-800 text-white text-sm font-bold rounded hover:bg-blue-900 transition">
-                                Ya, Kirim Laporan
-                            </button>
+                            <button type="button" @click="showConfirmModal = false" class="px-4 py-2 bg-gray-200 text-gray-700 text-sm font-medium rounded hover:bg-gray-300 transition">Batal</button>
+                            <button type="button" @click="confirmSubmit()" class="px-4 py-2 bg-blue-800 text-white text-sm font-bold rounded hover:bg-blue-900 transition">Ya, Kirim Laporan</button>
                         </div>
                     </div>
                 </div>
-
             </form>
         </div>
     </section>
@@ -402,62 +317,35 @@
             this.loading = true;
             this.result = null;
             this.error = '';
-            
             fetch('{{ route('report.check.post') }}', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: JSON.stringify({
-                    tracking_code: this.trackingCode.trim()
-                })
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                body: JSON.stringify({ tracking_code: this.trackingCode.trim() })
             })
             .then(res => res.json())
-            .then(data => {
-                this.loading = false;
-                this.result = data;
-            })
-            .catch(err => {
-                this.loading = false;
-                this.error = 'Terjadi kesalahan sistem. Silakan coba beberapa saat lagi.';
-            });
+            .then(data => { this.loading = false; this.result = data; })
+            .catch(err => { this.loading = false; this.error = 'Terjadi kesalahan sistem. Silakan coba beberapa saat lagi.'; });
         }
     }">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            {{-- Header --}}
             <div class="mb-8">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-[#1e293b] tracking-normal mb-1">CEK STATUS</h2>
                 <p class="text-sm text-gray-500 italic">Monitor pelaporan Anda di sini.</p>
             </div>
-
-            {{-- Form Input --}}
             <form @submit.prevent="checkStatus()" class="max-w-md mx-auto">
                 <div>
-                    <input type="text" 
-                           x-model="trackingCode" 
-                           placeholder="Nomor Register *" 
-                           required 
-                           class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400 uppercase">
+                    <input type="text" x-model="trackingCode" placeholder="Nomor Register *" required class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-gray-400 uppercase">
                 </div>
-
                 <div class="mt-4 flex justify-center">
-                    <button type="submit" 
-                            :disabled="loading"
-                            class="bg-blue-800 hover:bg-blue-900 active:bg-blue-950 text-white font-bold py-2 px-10 rounded shadow-sm transition-colors text-sm uppercase tracking-wider disabled:opacity-50">
+                    <button type="submit" :disabled="loading" class="bg-blue-800 hover:bg-blue-900 active:bg-blue-950 text-white font-bold py-2 px-10 rounded shadow-sm transition-colors text-sm uppercase tracking-wider disabled:opacity-50">
                         <span x-show="!loading">CEK</span>
                         <span x-show="loading">MEMERIKSA...</span>
                     </button>
                 </div>
             </form>
-
-            {{-- Error Connection --}}
             <div x-show="error" x-cloak class="mt-6 max-w-md mx-auto text-sm text-red-600 bg-red-50 p-3 rounded border border-red-200">
                 <p x-text="error"></p>
             </div>
-
-            {{-- Hasil Pencarian Status --}}
             <div x-show="result" x-cloak x-transition class="mt-8 max-w-lg mx-auto bg-gray-50 border border-gray-200 rounded-lg p-6 text-left shadow-sm">
                 <template x-if="result && result.found">
                     <div>
@@ -472,14 +360,11 @@
                                       'bg-blue-100 text-blue-800 border border-blue-200': result.report.status === 'Diverifikasi',
                                       'bg-purple-100 text-purple-800 border border-purple-200': result.report.status === 'Diproses',
                                       'bg-green-100 text-green-800 border border-green-200': result.report.status === 'Selesai'
-                                  }"
-                                  x-text="result.report.status"></span>
+                                  }" x-text="result.report.status"></span>
                         </div>
-
                         <div class="space-y-2 text-sm">
                             <p class="text-gray-600"><strong class="text-gray-800">Kategori:</strong> <span x-text="result.report.jenis_pelanggaran"></span></p>
                             <p class="text-gray-600"><strong class="text-gray-800">Waktu Lapor:</strong> <span x-text="result.report.tanggal"></span></p>
-                            
                             <div class="mt-4 bg-white p-3.5 rounded border border-gray-200">
                                 <p class="text-xs font-semibold text-gray-700 mb-1">Catatan dari Petugas WBS:</p>
                                 <p class="text-xs text-gray-600" x-text="result.report.catatan_admin || 'Belum ada catatan dari petugas.'"></p>
@@ -487,7 +372,6 @@
                         </div>
                     </div>
                 </template>
-
                 <template x-if="result && !result.found">
                     <div class="text-center py-2 text-red-600 text-sm">
                         <p class="font-medium" x-text="result.message"></p>
@@ -500,99 +384,125 @@
     {{-- ==================== SECTION FAQ ==================== --}}
     <section id="faq" class="py-20 bg-gray-50/50" x-data="{ activeFaq: 1 }">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            {{-- Header --}}
             <div class="text-center mb-10">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-[#1e293b] tracking-normal mb-1">FREQUENTLY ASKED QUESTION</h2>
                 <p class="text-sm text-gray-500 italic">Pelajari lebih lanjut mengenai Whistleblowing System.</p>
             </div>
-
-            {{-- Accordion Container --}}
             <div class="max-w-3xl mx-auto border border-gray-200 rounded overflow-hidden shadow-sm bg-white divide-y divide-gray-200">
-                
-                {{-- FAQ Item 1 --}}
                 <div>
-                    <button type="button" 
-                            @click="activeFaq = (activeFaq === 1 ? null : 1)" 
-                            class="w-full text-left px-5 py-3.5 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                    <button type="button" @click="activeFaq = (activeFaq === 1 ? null : 1)" class="w-full text-left px-5 py-3.5 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
                         <span class="text-sm text-gray-800 font-normal">Apa saja syarat laporan dapat ditindaklanjuti ?</span>
-                        <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-200" :class="activeFaq === 1 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-200" :class="activeFaq === 1 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                     </button>
-                    <div x-show="activeFaq === 1" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
-                        Mengisi email dan nomor HP yang dapat dihubungi serta melengkapi form pelaporan.
-                    </div>
+                    <div x-show="activeFaq === 1" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">Mengisi email dan nomor HP yang dapat dihubungi serta melengkapi form pelaporan.</div>
                 </div>
-
-                {{-- FAQ Item 2 --}}
                 <div>
-                    <button type="button" 
-                            @click="activeFaq = (activeFaq === 2 ? null : 2)" 
-                            class="w-full text-left px-5 py-3.5 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                    <button type="button" @click="activeFaq = (activeFaq === 2 ? null : 2)" class="w-full text-left px-5 py-3.5 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
                         <span class="text-sm text-gray-800 font-normal">Apakah identitas pelapor dijamin kerahasiaannya ?</span>
-                        <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-200" :class="activeFaq === 2 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-200" :class="activeFaq === 2 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                     </button>
-                    <div x-show="activeFaq === 2" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
-                        Ya, identitas pelapor dijamin kerahasiaannya dan dilindungi oleh pihak Pemerintah Kota Bandung serta peraturan hukum yang berlaku. Anda juga dapat memilih opsi anonim saat melapor.
-                    </div>
+                    <div x-show="activeFaq === 2" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">Ya, identitas pelapor dijamin kerahasiaannya dan dilindungi oleh pihak Pemerintah Kota Bandung serta peraturan hukum yang berlaku. Anda juga dapat memilih opsi anonim saat melapor.</div>
                 </div>
-
-                {{-- FAQ Item 3 --}}
                 <div>
-                    <button type="button" 
-                            @click="activeFaq = (activeFaq === 3 ? null : 3)" 
-                            class="w-full text-left px-5 py-3.5 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                    <button type="button" @click="activeFaq = (activeFaq === 3 ? null : 3)" class="w-full text-left px-5 py-3.5 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
                         <span class="text-sm text-gray-800 font-normal">Bagaimana cara memantau tindak lanjut pengaduan saya ?</span>
-                        <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-200" :class="activeFaq === 3 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-200" :class="activeFaq === 3 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                     </button>
-                    <div x-show="activeFaq === 3" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
-                        Anda dapat memeriksa perkembangan laporan melalui menu "Cek Status" di atas dengan memasukkan Nomor Register / Kode Tracking yang Anda terima saat selesai mengirim laporan.
-                    </div>
+                    <div x-show="activeFaq === 3" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">Anda dapat memeriksa perkembangan laporan melalui menu "Cek Status" di atas dengan memasukkan Nomor Register / Kode Tracking yang Anda terima saat selesai mengirim laporan.</div>
                 </div>
-
-                {{-- FAQ Item 4 --}}
                 <div>
-                    <button type="button" 
-                            @click="activeFaq = (activeFaq === 4 ? null : 4)" 
-                            class="w-full text-left px-5 py-3.5 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                    <button type="button" @click="activeFaq = (activeFaq === 4 ? null : 4)" class="w-full text-left px-5 py-3.5 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
                         <span class="text-sm text-gray-800 font-normal">Berapa lama laporan saya akan diproses ?</span>
-                        <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-200" :class="activeFaq === 4 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-200" :class="activeFaq === 4 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                     </button>
-                    <div x-show="activeFaq === 4" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
-                        Laporan yang masuk akan diverifikasi awal dalam waktu maksimal 3x24 jam kerja sebelum ditindaklanjuti ke tahap investigasi oleh tim penanganan resmi.
-                    </div>
+                    <div x-show="activeFaq === 4" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">Laporan yang masuk akan diverifikasi awal dalam waktu maksimal 3x24 jam kerja sebelum ditindaklanjuti ke tahap investigasi oleh tim penanganan resmi.</div>
                 </div>
-
-                {{-- FAQ Item 5 --}}
                 <div>
-                    <button type="button" 
-                            @click="activeFaq = (activeFaq === 5 ? null : 5)" 
-                            class="w-full text-left px-5 py-3.5 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                    <button type="button" @click="activeFaq = (activeFaq === 5 ? null : 5)" class="w-full text-left px-5 py-3.5 bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
                         <span class="text-sm text-gray-800 font-normal">Apakah ada biaya untuk membuat pengaduan ?</span>
-                        <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-200" :class="activeFaq === 5 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-200" :class="activeFaq === 5 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                     </button>
-                    <div x-show="activeFaq === 5" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">
-                        Tidak ada biaya apapun. Semua layanan Whistleblowing System (WBS) Balai Kota Bandung sepenuhnya gratis.
-                    </div>
+                    <div x-show="activeFaq === 5" x-cloak x-collapse class="px-5 py-3.5 bg-white text-sm text-gray-600 border-t border-gray-200 leading-relaxed">Tidak ada biaya apapun. Semua layanan Whistleblowing System (WBS) Balai Kota Bandung sepenuhnya gratis.</div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    {{-- ==================== SECTION PERATURAN ==================== --}}
-    <section id="peraturan" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">PERATURAN</h2>
-            <p class="text-gray-600">Peraturan terkait WBS Balai Kota Bandung akan segera tersedia.</p>
+    {{-- ==================== SECTION PENGATURAN (MAPS) ==================== --}}
+    <section id="pengaturan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#1e293b] tracking-normal mb-1">LOKASI</h2>
+                <p class="text-sm text-gray-500 italic">Informasi pengaturan dan petunjuk arah ke Balai Kota Bandung.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <div class="lg:col-span-2 rounded-lg overflow-hidden shadow-md border border-gray-200 min-h-[400px]">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Balai%20Kota%20Bandung&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; min-height:400px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Peta Lokasi Balai Kota Bandung">
+                    </iframe>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg shadow-md border border-gray-200 p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="mx-auto w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center mb-5 shadow-lg shadow-blue-800/30">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.999 1.999 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-gray-900 text-center mb-4">Balai Kota Bandung</h3>
+
+                        <div class="flex items-start space-x-3 mb-4">
+                            <svg class="w-5 h-5 text-blue-800 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Jl. Dalem Kaum No. 3, Bandung Wetan,<br>
+                                Kota Bandung, Jawa Barat 40113
+                            </p>
+                        </div>
+
+                        <div class="flex items-start space-x-3 mb-4">
+                            <svg class="w-5 h-5 text-blue-800 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong>Jam Operasional:</strong><br>
+                                Senin - Jumat<br>
+                                08.00 - 16.00 WIB
+                            </p>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-blue-800 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong>Telepon:</strong><br>
+                                (022) 420-1234
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Balai+Kota+Bandung" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="block w-full bg-blue-800 hover:bg-blue-900 text-white font-bold py-3 px-4 rounded-md shadow-sm text-center text-sm uppercase tracking-wider transition-colors">
+                            📍 Petunjuk Arah
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -611,9 +521,7 @@
             captchaInput: '',
             captchaError: false,
             showConfirmModal: false,
-            init() {
-                this.generateCaptcha();
-            },
+            init() { this.generateCaptcha(); },
             generateCaptcha() {
                 const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
                 let code = '';
@@ -635,7 +543,6 @@
                 ctx.fillStyle = '#eaecef';
                 ctx.fillRect(0, 0, w, h);
                 
-                // Random noise lines
                 for (let i = 0; i < 6; i++) {
                     ctx.strokeStyle = ['#9ca3af', '#6b7280', '#4b5563', '#374151'][Math.floor(Math.random() * 4)];
                     ctx.lineWidth = Math.random() * 1.5 + 0.8;
@@ -645,7 +552,6 @@
                     ctx.stroke();
                 }
                 
-                // Dots noise
                 for (let i = 0; i < 45; i++) {
                     ctx.fillStyle = '#4b5563';
                     ctx.beginPath();
@@ -653,7 +559,6 @@
                     ctx.fill();
                 }
                 
-                // Text characters with slight distortion
                 ctx.font = 'bold 22px monospace';
                 ctx.textBaseline = 'middle';
                 const charSpacing = (w - 20) / 4;
